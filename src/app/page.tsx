@@ -7,27 +7,30 @@ import PointerLight from "@/components/PointLight";
 import { Physics } from "@react-three/cannon";
 import Plane from "@/components/Plane";
 import DiceModel from "@/components/DiceModel";
+import useMouseHover from "@/hooks/useMouseHover";
 
 export default function Home() {
+  useMouseHover();
+
   return (
     <main className="">
       <div style={{ width: "100vw", height: "100vh" }}>
         <Canvas
           camera={{
-            position: [10, 10, 10],
+            position: [0, 20, 20],
           }}
         >
           <ambientLight />
           {/* <Box position={[0, 0, 0]} /> */}
           <PointerLight />
 
-          <Physics>
+          <Physics gravity={[0, -9.81, 0]}>
             <Plane position={[0, 0, 0]} />
             <DiceModel />
           </Physics>
 
-          <gridHelper args={[10, 10]} />
-          <axesHelper args={[8]} />
+          {/* <gridHelper args={[10, 10]} />
+          <axesHelper args={[8]} /> */}
 
           {/* <OrbitControls /> */}
         </Canvas>

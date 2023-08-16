@@ -4,7 +4,7 @@ import { OrbitControls, useHelper } from "@react-three/drei";
 
 export default function PointLight() {
   const light = useRef(null!);
-  useHelper(light, THREE.DirectionalLightHelper, 0.5, "hotpink");
+  // useHelper(light, THREE.DirectionalLightHelper, 0.5, "hotpink");
 
   return (
     <directionalLight
