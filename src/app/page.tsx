@@ -8,6 +8,7 @@ import { Physics } from "@react-three/cannon";
 import Plane from "@/components/Plane";
 import DiceModel from "@/components/DiceModel";
 import useMouseHover from "@/hooks/useMouseHover";
+import Cube from "@/components/Cube";
 
 export default function Home() {
   useMouseHover();
@@ -26,6 +27,7 @@ export default function Home() {
 
           <Physics gravity={[0, -9.81, 0]}>
             <Plane position={[0, 0, 0]} />
+            <Cube position={[10, 20, 0]} />
             <DiceModel />
           </Physics>
 

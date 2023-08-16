@@ -11,9 +11,10 @@ export default function DiceModel() {
     () => ({
       args: [2, 2, 2],
       mass: 10,
-      position: [0, 1, 0],
-      linearFactor: [1, 1.5, 1],
-      linearDamping: 0.9,
+      position: [0, 20, 0],
+      linearFactor: [1, 1.4, 1],
+      // linearDamping: 0.9,
+      type: "Dynamic",
       // quaternion: [0, 0, 0, 0],
     }),
     useRef<Group>(null)
@@ -39,10 +40,11 @@ export default function DiceModel() {
           // console.log(e);
 
           const intersection = e.intersections[0];
+
           const { point } = intersection;
 
           //api.position.set(0, point.y, 0);
-          api.position.set(0, point.y <= 1 ? 1 : point.y, 0);
+          api.position.set(point.x, point.y <= 1 ? 1 : point.y, 0);
           // api.angularFactor.set(10, 10, 10);
           //ref.current?.position.set(point.x, point.y, point.z);
           //console.log("dragging", ref.current?.position);
@@ -51,6 +53,7 @@ export default function DiceModel() {
         }
       }}
       onPointerUp={() => {
+        console.log("weoifjowef");
         setIsDragging(false);
         const force = 1 + 2 * Math.random();
         api.applyImpulse([-force, force, 0], [0, 0, 0.2]);
