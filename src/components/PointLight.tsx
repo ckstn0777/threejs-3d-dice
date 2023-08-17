@@ -10,7 +10,7 @@ export default function PointLight() {
     <directionalLight
       ref={light}
       position={[2, 2, 2]}
-      color="ffffff"
+      color="#ffffff"
       intensity={1}
     />
   );
